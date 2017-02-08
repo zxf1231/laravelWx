@@ -12,9 +12,10 @@ class WxController extends Controller
     public function index()
     {
 
+//        dd(env('WX_ID'));
 
         // $encodingAESKey 可以为空
-        $server = new Server( env('WX_ID') , env('WX_TK') );
+        $server = new Server( env('WX_ID') , env('WX_TOKEN') );
 
         $server->on('event' , 'subscribe' , [$this , 'guanzhu']);
         $server->on('event' , 'unsubscribe' , [$this , 'qxgz']);
