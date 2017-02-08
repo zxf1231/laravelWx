@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Overtrue\Wechat\Server;
 
 class WxController extends Controller
 {
