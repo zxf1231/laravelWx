@@ -21,5 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::any('wx', 'WxController@index');
+Route::any('guanzhu', 'WxController@guanzhu');
 
 

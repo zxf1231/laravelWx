@@ -28,7 +28,7 @@ class WxController extends Controller
 
     }
 
-    public function guanzhu($event)
+    public function guanzhu()
     {
 //        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
 //        $wu=$wxuser->get($event->FromUserName);
