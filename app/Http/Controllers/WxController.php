@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Overtrue\Wechat\Server;
+use Overtrue\Wechat\User as WxUser;
 
 class WxController extends Controller
 {
@@ -28,6 +30,13 @@ class WxController extends Controller
 
     public function guanzhu($event)
     {
+        $wxuser=new WxUser(env('WX_ID') , env('WX_TOKEN'));
+        $wu=$wxuser->get($event->FormUserName);
+        $user=new User();
+        $user->openid=$event->FormUserName;
+        $user->name=$wu->nickname;
+        $user->subtime=time();
+        $user->save();
         $msg='欢迎你，'.$event->FromUserName;
         return $msg;
     }
