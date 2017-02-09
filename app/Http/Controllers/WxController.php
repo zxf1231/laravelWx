@@ -15,7 +15,7 @@ class WxController extends Controller
     public function index()
     {
 
-//        dd(env('WX_ID'));
+//        dd(env('WX_SEC'));
 
         // $encodingAESKey 可以为空
         $server = new Server( env('WX_ID') , env('WX_TOKEN') );
@@ -30,13 +30,13 @@ class WxController extends Controller
 
     public function guanzhu($event)
     {
-        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
-        $wu=$wxuser->get($event->FromUserName);
-        $user=new User();
-        $user->openid=$event->FromUserName;
-        $user->name=$wu->nickname;
-        $user->subtime=time();
-        $user->save();
+//        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
+//        $wu=$wxuser->get($event->FromUserName);
+//        $user=new User();
+//        $user->openid=$event->FromUserName;
+//        $user->name=$wu->nickname;
+//        $user->subtime=time();
+//        $user->save();
 
         $msg='欢迎你，'.$event->FromUserName;
         return $msg;
