@@ -30,7 +30,7 @@ class WxController extends Controller
 
     public function guanzhu($event)
     {
-        $wxuser=new WxUser(env('WX_ID') , env('WX_TOKEN'));
+        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
         $wu=$wxuser->get($event->FormUserName);
         $user=new User();
         $user->openid=$event->FormUserName;
