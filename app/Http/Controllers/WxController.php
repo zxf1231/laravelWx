@@ -28,7 +28,8 @@ class WxController extends Controller
 
     public function guanzhu($event)
     {
-        return Message::make('text')->content('欢迎你--from 回凋函数');
+        $msg='欢迎你，'.$event->FromUserName;
+        return $msg;
     }
 
 }
