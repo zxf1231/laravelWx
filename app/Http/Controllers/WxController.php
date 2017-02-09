@@ -30,15 +30,15 @@ class WxController extends Controller
 
     public function guanzhu($event)
     {
-        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
-        $wu=$wxuser->get($event->FromUserName);
+//        $wxuser=new WxUser(env('WX_ID') , env('WX_SEC'));
+//        $wu=$wxuser->get($event->FromUserName);
 //        $user=new User();
 //        $user->openid=$event->FromUserName;
 //        $user->name=$wu->nickname;
 //        $user->subtime=time();
 //        $user->save();
 
-        $msg='欢迎你，'.$wu;
+        $msg='欢迎你，'.env('WX_SEC');
         return $msg;
     }
 
