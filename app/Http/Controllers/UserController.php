@@ -11,7 +11,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         if($request->session()->get('user')){
-            return '/';
+            return redirect('/');
         }
         $auth=new Auth(env('WX_ID'),env('WX_SEC'));
         $to='http://59.110.137.30/login';
@@ -23,7 +23,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if(!$request->session()->get('user')){
-            return url('/login');
+            return redirect('/login');
         }
         dd($request->session()->get('user'));
 
