@@ -56,13 +56,13 @@ class WxController extends Controller
         $result=$qrcode->forever($uid);
         $ticket=$result->ticket;
         //下载二维码
-        $qrcode->download($ticket,public_path().$this->mkd().'/'.'qr_'.$uid.'jpg');
+        $qrcode->download($ticket,public_path().$this->mkd().'/'.'qr_'.$uid.'.jpg');
     }
 
     protected function mkd()
     {
         $path=date('/Y/md');
-        if(is_dir(public_path().$path)){
+        if(!is_dir(public_path().$path)){
             mkdir(public_path().$path,0777,true);
         }
         return $path;
