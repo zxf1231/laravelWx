@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Cart;
+//use Cart;
 
 class ShopController extends Controller
 {
@@ -36,9 +36,9 @@ class ShopController extends Controller
     public function buy($gid)
     {
         $g=$this->gs[$gid];
-        Cart::add(1,'nokia',23,2);
-        $gs=Cart::getContent();
-        dd($gs);
+//        Cart::add(1,'nokia',23,2);
+//        $gs=Cart::getContent();
+//        dd($gs);
 
     }
 }
