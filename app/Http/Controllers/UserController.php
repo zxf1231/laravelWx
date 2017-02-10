@@ -28,4 +28,10 @@ class UserController extends Controller
         dd($request->session()->get('user'));
 
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('user');
+        echo "logout out";
+    }
 }
