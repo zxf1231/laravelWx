@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/login', 'UserController@login');
 
 
 Route::any('wx', 'WxController@index');
