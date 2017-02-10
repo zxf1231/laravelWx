@@ -16,9 +16,12 @@ class ShopController extends Controller
         4=>['goods_id'=>4,'goods_name'=>'狗尾巴 淡泊名利', 'price'=>23.4],
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-//        dd($this->gs);
+
+        if(!$request->session()->get('user')){
+            return redirect('/login');
+        }
         return view('index',['gs'=>$this->gs]);
     }
 

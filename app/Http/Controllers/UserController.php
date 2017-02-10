@@ -20,14 +20,14 @@ class UserController extends Controller
         return back();
     }
 
-    public function index(Request $request)
-    {
-        if(!$request->session()->get('user')){
-            return redirect('/login');
-        }
-        dd($request->session()->get('user'));
-
-    }
+//    public function index(Request $request)
+//    {
+//        if(!$request->session()->get('user')){
+//            return redirect('/login');
+//        }
+//        dd($request->session()->get('user'));
+//
+//    }
 
     public function logout(Request $request)
     {
