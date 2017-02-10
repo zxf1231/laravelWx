@@ -14,7 +14,7 @@
 //Route::get('/', function () {
 //    return phpinfo();
 //});
-Route::get('/','UserController@index');
+//Route::get('/','UserController@index');
 
 Auth::routes();
 
@@ -23,7 +23,16 @@ Route::get('/login', 'UserController@login');
 Route::get('/logout', 'UserController@logout');
 
 
+Route::get('/', 'ShopController@index');
+Route::get('/goods/{gid}', 'ShopController@goods');
+Route::get('/buy/{gid}', 'ShopController@buy');
+
+
 Route::any('wx', 'WxController@index');
 Route::any('guanzhu', 'WxController@guanzhu');
+
+
+
+
 
 
