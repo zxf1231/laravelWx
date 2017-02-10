@@ -14,7 +14,8 @@ class UserController extends Controller
             return '/';
         }
         $auth=new Auth(env('WX_ID'),env('WX_SEC'));
-        $user=$auth->authorize();
+        $to='http://59.110.137.30/login';
+        $user=$auth->authorize($to);
         $request->session()->put('user',$user->all());
         return back();
     }
