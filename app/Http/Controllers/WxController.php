@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Overtrue\Wechat\Server;
 use Overtrue\Wechat\User as WxUser;
+use Overtrue\Wechat\QRCode;
 
 class WxController extends Controller
 {
@@ -37,9 +38,35 @@ class WxController extends Controller
         $user->name=$wu->nickname;
         $user->subtime=time();
         $user->save();
+        $this->qr($user->uid);
+
+
+
+
+
 
         $msg='欢迎你，'.$event->FromUserName;
         return $msg;
+    }
+
+    public function qr($uid)
+    {
+        //开始生成二维码
+        $qrcode=new QRCode(env('WX_ID') , env('WX_SEC'));
+        $result=$qrcode->forever($uid);
+        $ticket=$result->ticket;
+        //下载二维码
+        $qrcode->download($ticket,public_path().$this->mkd().'/'.'qr_'.$uid.'jpg');
+    }
+
+    protected function mkd()
+    {
+        $path=date('/Y/md');
+        if(is_dir(public_path().$path)){
+            mkdir(public_path().$path,0777,true);
+        }
+        return $path;
+
     }
 
 }
